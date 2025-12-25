@@ -13,6 +13,17 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 NOTION_TOKEN = os.getenv("NOTION_TOKEN") 
 DATABASE_ID = os.getenv("DATABASE_ID")
 
+WEBHOOK_URL = "https://reflection-diary-bot.onrender.com"  # ваш URL + /webhook
+
+@dp.startup()
+async def on_startup():
+    await bot.set_webhook(WEBHOOK_URL)
+    print(f"Webhook: {WEBHOOK_URL}")
+
+@dp.shutdown()
+async def on_shutdown():
+    await bot.delete_webhook()
+
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
