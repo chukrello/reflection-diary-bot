@@ -56,7 +56,7 @@ async def save_notion(callback: CallbackQuery):
         })
     
     status = "✅" if response.status_code == 200 else f"❌ {response.status_code}"
-    await callback.message.edit_text(f"{status} Сохранено в Notion!\n📝 {text}\n🏷️ {typ}")
+    await callback.message.edit_text(f"{status} Сохранено в Notion!\n🏷️ {typ}")
     del user_texts[user_id]
 
 @app.on_event("startup")
