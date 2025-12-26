@@ -26,6 +26,10 @@ user_texts = {}
 async def start(message: Message):
     await message.answer("Отправьте текст, спрошу тип (health/food/work)")
 
+@dp.message(Command("ping"))
+async def ping(message: Message):
+    await message.answer("🏓 Pong!\n🟢 Бот работает\n⏰ " + date.today().isoformat())
+
 @dp.message()
 async def ask_type(message: Message):
     user_texts[message.from_user.id] = message.text
