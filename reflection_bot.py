@@ -66,6 +66,7 @@ async def on_startup():
     asyncio.create_task(dp.start_polling(bot))
 
 @app.get("/")
+@app.head("/", include_in_schema=False)
 async def root():
     return {"status": "online", "bot": "reflection-diary"}
 
