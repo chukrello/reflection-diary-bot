@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+
 import uvicorn
 from fastapi import FastAPI, Request
 from aiogram import Bot, Dispatcher, F
